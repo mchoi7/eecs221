@@ -1,0 +1,72 @@
+Script began: Thu Apr 21 18:06:41 PDT 2016
+Node: compute-10-1.local
+Current directory: /data/users/rzambre/hw1
+
+=== Running 5 trials of Mergesort on 10 million elements ... ===
+*** Trial 1 ***
+Timer: gettimeofday
+Timer resolution: ~ 1 us (?)
+
+N == 10000000
+
+Sequential: 2.07214 seconds ==> 4.82593 million keys per second
+	(Array is sorted.)
+Number of threads spawned: 8
+Parallel sort: 0.695622 seconds ==> 14.3756 million keys per second
+	(Array is sorted.)
+	(Arrays are equal.)
+
+*** Trial 2 ***
+Timer: gettimeofday
+Timer resolution: ~ 1 us (?)
+
+N == 10000000
+
+Sequential: 2.22364 seconds ==> 4.49712 million keys per second
+	(Array is sorted.)
+Number of threads spawned: 8
+Parallel sort: 0.723867 seconds ==> 13.8147 million keys per second
+	(Array is sorted.)
+	(Arrays are equal.)
+
+*** Trial 3 ***
+Timer: gettimeofday
+Timer resolution: ~ 1 us (?)
+
+N == 10000000
+
+Sequential: 2.07242 seconds ==> 4.82529 million keys per second
+	(Array is sorted.)
+Number of threads spawned: 8
+Parallel sort: 0.675081 seconds ==> 14.813 million keys per second
+	(Array is sorted.)
+	(Arrays are equal.)
+
+*** Trial 4 ***
+Timer: gettimeofday
+Timer resolution: ~ 1 us (?)
+
+N == 10000000
+
+Sequential: 2.07138 seconds ==> 4.8277 million keys per second
+	(Array is sorted.)
+Number of threads spawned: 8
+Parallel sort: 0.660522 seconds ==> 15.1395 million keys per second
+	(Array is sorted.)
+	(Arrays are equal.)
+
+*** Trial 5 ***
+Timer: gettimeofday
+Timer resolution: ~ 1 us (?)
+
+N == 10000000
+
+Sequential: 2.07817 seconds ==> 4.81193 million keys per second
+	(Array is sorted.)
+Number of threads spawned: 8
+Parallel sort: 0.695518 seconds ==> 14.3778 million keys per second
+	(Array is sorted.)
+	(Arrays are equal.)
+
+
+=== Done! ===
