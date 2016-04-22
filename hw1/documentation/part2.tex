@@ -1,0 +1,6 @@
+\section{Part 2}
+\label{sec:part2}
+
+\subsection{Part a}
+
+The multi-threaded P-Transpose algorithm shown in Exercise 27.1-7 of the CLRS is correct for a n x n matrix. The transpose of a square matrix essentially involves interchanging the rows and columns of the matrix. Each element in the matrix has only one position to go to in the transpose of the matrix. The position of an element in the transpose is also not dependent on any other element. Hence, the element-interchanges can be conducted simultaneously. To prove the correctness of the algorithm, let us assume that the algorithm is incorrect and produces a matrix, B that is not the transpose of the input matrix, A. Here B 
