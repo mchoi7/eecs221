@@ -1,4 +1,12 @@
 \section{Part 1}
 \label{sec:part1}
 
-This is Part 1.
+I implemented a parallel mergesort in OpenMP with the following characteristics:
+
+\begin{itemize}
+	\item In general, the program divides the tasks into sub-tasks only if the amount of work to be done in each task is greater than $N/t$ where $N$ is the total number of elements in the array and $t$ is the number of threads spawned in the parallel region.
+	\item In the base case (when the size of the array is less than $N/t$) of the first part of the algorithm that is dividing up the array into smaller chunks, the program uses a sequential quick sort is to sort the elements before passing on the sub-arrays to the merge operation.
+	\item In the base case of the parallel merge operation, the program merges the two sub-arrays sequentially instead of in parallel.
+\end{itemize}
+
+The parallel merge operation was adopted from ~\cite{thomas2001introduction}

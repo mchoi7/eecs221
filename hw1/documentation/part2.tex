@@ -3,4 +3,17 @@
 
 \subsection{Part a}
 
-The multi-threaded P-Transpose algorithm shown in Exercise 27.1-7 of the CLRS is correct for a n x n matrix. The transpose of a square matrix essentially involves interchanging the rows and columns of the matrix. Each element in the matrix has only one position to go to in the transpose of the matrix. The position of an element in the transpose is also not dependent on any other element. Hence, the element-interchanges can be conducted simultaneously. To prove the correctness of the algorithm, let us assume that the algorithm is incorrect and produces a matrix, B that is not the transpose of the input matrix, A. Here B 
+The multi-threaded P-Transpose algorithm shown in Exercise 27.1-7 of the CLRS is correct for a $n \times n$ matrix. The transpose of a square matrix essentially involves interchanging the rows and columns of the matrix. Each element in the matrix has only one position to go to in the transpose of the matrix. The position of an element in the transpose is also not dependent on any other element. Hence, the element-interchanges can be conducted simultaneously. To prove the correctness of the algorithm, let $A$ be a matrix that the algorithm operates on and let $B$ be the resulting matrix. Let us assume that the algorithm is incorrect. This implies that $B_{ij} \neq A_{ji}$ for at least one pair of the $ij$ value where $i$ and $j$ are between 1 and $n$. In the algorithm, none of the elements on the diagonal of $A$ are accessed. Hence, $B_{ij} = A_{ij}$ for all $i = j$. Every other element in the rest of the matrix is accessed and in every access $A_{ij}$ is swapped with $A_{ji}$. This implies that $B_{ij} = A_{ji}$ which defies our assumption and hence, the algorithm is correct.
+
+\subsection{Part b}
+The algorithm doesn't access the diagonal elements and swaps elements on one side of the diagonal with their corresponding elements on the other side of the diagonal. Hence the work done in the algorithm is $W = (n^2 - n)/2$ i.e. $O(n^2)$.
+
+The depth of the outer parallel for loop is $log(n)$ while the depth of the inner for loop in its worst case is $log(n)$. Hence the asymptotic time of the depth, $D,$ is $O(log^2(n))$.
+
+To analyze the parallelism of this algorithm I look at the scalability, $W/D$ of the algorithm. Here, $W/D$ is $O(n^2/log^2(n))$ which is a scalable algorithm since the depth grows much slower than the amount of work to be done with the increase in input size.
+
+\subsection{Part c}
+
+If the inner loop is serialized, it runs in $O(n)$ time. Hence the depth of the algorithm now is $D = O(nlog(n))$. The work to be done still remains the same i.e. $W=O(n^2)$.
+
+The scalability of the algorithm is now $W/D = O(n^2/nlog(n)) = O(n/log(n))$. This is still a good parallel algorithm but the amount of parallelism in this algorithm is lesser than that in the algorithm where both loops were parallelized. In the completely parallel algorithm, the average amount of work for each processor increases at the rate of $O(n^2)$. In the algorithm with the serial inner loop, the average amount of work for each processor increases at the rate of $O(n)$ for the same increse in input size.
