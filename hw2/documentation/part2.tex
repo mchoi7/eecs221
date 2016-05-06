@@ -1,0 +1,49 @@
+\section{Part 2}
+\label{sec:part2}
+
+\subsection{Load balancing strategies}
+
+Intuitively, Susie's load-balancing strategy performs better than that of Joe's. In Joe's strategy, processes are assigned contiguous chunks of rows to work on. The processes working closer to the top and bottom rows have much lesser work to do than those closer to the center rows (the locations on the top and bottom of the complex plane take very few iterations to decide whether or not they belong to the Mandelbrot set). So, some processes have much more work than the others.
+
+In Susie's strategy, the processes work on rows that are distributed across the complex plane unlike Joe. The workload is distributed evenly between the processors. Thus, the processes are utilized in a much better fashion in Susie's strategy than that in Joe's. This reflects in the overall work being done faster in Susie's implementation than in Joe's. 
+
+We will offer Susie a full-time job!
+
+\subsection{Parallelization}
+
+We observe the following (in the table below) run-times (in seconds) for the different strategies on a workload of 10000 x 10000.
+
+%\begin{enumerate}
+%	\item For a workload of 5000 x 5000 using 64 processes
+%	\begin{itemize}
+%		\item Serial: 17 s
+%		\item Joe: 3.6062 s
+%		\item Susie: 3.2176 s
+%	\end{itemize}
+%	\item For a workload of 10000 x 10000
+%	\begin{itemize}
+%		\item Serial: 65 s
+%		\item Joe: 8.7384 s
+%		\item Susie: 7.4088 s
+%	\end{itemize} 
+%\end{enumerate}
+
+\begin{center}
+	\begin{tabular}{||c c c c||} 
+		\hline
+		\#Proc & Susie & Joe & M/S \\ [0.5ex] 
+		\hline\hline
+		16 & 7.7 & 13.2 & 6.1 \\ 
+		\hline
+		32 & 6.7 & 9.1 & 4.9 \\
+		\hline
+		64 & 7.4 & 8.7 & 3.6 \\
+		\hline
+	\end{tabular}
+\end{center}
+
+The serial version of the code takes 65 s for the same workload of 10000 x 10000.
+
+Joe's and Susie's implementations show good speedup values against the serial version. They are a lot more efficient than the serial implementation since multiple processes are computing different rows simultaneously. Susie's strategy always outperforms Joe's in terms of both speedup and efficiency since the work is distributed more evenly in Susie's implementation while they both incur the same communication cost. In the computation of the Mandelbrot set, the location in the complex plane is the driving factor for the amount of computation at that point. Hence, the computational model of the algorithm cannot be generalized over all the points in the plane.
+
+The Master-Slave (M-S) model performs better (higher speedups) than those of Susie and Joe on the HPC-cluster network. Even though the communication is higher in the M-S model, all the processes are working until all the jobs are done. This is unlike Susie's or Joe's implementation, where each process's work is fixed and the root has to wait for "slowest" (the one with more work) process to finish it's work. The M-S model will scale better to very large image sizes on the HPC-cluster network since cost of computation is much more significant than the cost of communication on this particular network. 
