@@ -1,0 +1,47 @@
+Script began: Tue May 17 11:32:53 PDT 2016
+Node: compute-1-14.local
+Current directory: /data/users/rzambre/hw3
+
+=== Running 5 trials of first-add ... ===
+*** Trial 1 ***
+N: 8388608
+Timer: gettimeofday
+Timer resolution: ~ 1 us (?)
+Time to execute first add GPU reduction kernel: 0.000954 secs
+Effective bandwidth: 35.17 GB/s
+Time to execute naive CPU reduction: 0.11693 secs
+SUCCESS: GPU: 41.950504  CPU: 41.950504
+*** Trial 2 ***
+N: 8388608
+Timer: gettimeofday
+Timer resolution: ~ 1 us (?)
+Time to execute first add GPU reduction kernel: 0.000941 secs
+Effective bandwidth: 35.66 GB/s
+Time to execute naive CPU reduction: 0.116853 secs
+SUCCESS: GPU: 41.944447  CPU: 41.944447
+*** Trial 3 ***
+N: 8388608
+Timer: gettimeofday
+Timer resolution: ~ 1 us (?)
+Time to execute first add GPU reduction kernel: 0.000941 secs
+Effective bandwidth: 35.66 GB/s
+Time to execute naive CPU reduction: 0.116963 secs
+SUCCESS: GPU: 41.944447  CPU: 41.944447
+*** Trial 4 ***
+N: 8388608
+Timer: gettimeofday
+Timer resolution: ~ 1 us (?)
+Time to execute first add GPU reduction kernel: 0.000941 secs
+Effective bandwidth: 35.66 GB/s
+Time to execute naive CPU reduction: 0.116962 secs
+SUCCESS: GPU: 41.949059  CPU: 41.949059
+*** Trial 5 ***
+N: 8388608
+Timer: gettimeofday
+Timer resolution: ~ 1 us (?)
+Time to execute first add GPU reduction kernel: 0.000942 secs
+Effective bandwidth: 35.62 GB/s
+Time to execute naive CPU reduction: 0.116947 secs
+SUCCESS: GPU: 41.949059  CPU: 41.949059
+
+=== Done! ===
