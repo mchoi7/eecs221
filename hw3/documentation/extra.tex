@@ -1,0 +1,22 @@
+\section{Matrix Transpose}
+\label{sec:extra}
+
+In a matrix transpose operation, we observe that each element in the input matrix has a unique location in the output (transposed) matrix. So, initially we implemented a naive transpose algorithm that assigns one element to each CUDA thread. Each thread will read only one element from the input array and write to its corresponding location in the output array. We tested our algorithm on a $1024 \times 1024$ matrix and here are our results:
+
+\begin{center}
+	\begin{tabular}{||c c c c||} 
+		\hline
+		\#Trial & CPU Time (s) & GPU Time (s) & GPU billion elements/s \\ [0.5ex] 
+		\hline\hline
+		1 & 0.023904 & 0.000676 & 1.55115 \\ 
+		\hline
+		2 & 0.023669 & 0.000725 &  1.44631 \\
+		\hline
+		3 & 0.023171 & 0.000646 & 1.62318 \\
+		\hline
+		4 & 0.023479 & 0.000677 & 1.54886 \\
+		\hline
+		5 & 0.023418 & 0.000651 & 1.61072 \\
+		\hline
+	\end{tabular}
+\end{center}

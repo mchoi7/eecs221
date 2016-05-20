@@ -1,0 +1,24 @@
+\section{Part 2: Strided Access by Consecutive Threads }
+\label{sec:part2}
+
+Recorded data for parallel reduction by strided access using consecutive threads:
+
+\begin{center}
+	\begin{tabular}{||c c c||} 
+		\hline
+		\#Trial & Time (s) & Bandwidth (GB/s) \\ [0.5ex] 
+		\hline\hline
+		1 & 0.00223 & 15.05 \\ 
+		\hline
+		2 & 0.002209 & 15.19 \\
+		\hline
+		3 & 0.00222 & 15.11 \\
+		\hline
+		4 & 0.002211 & 15.18 \\
+		\hline
+		5 & 0.002251 & 14.91 \\
+		\hline
+	\end{tabular}
+\end{center}
+
+This method is about $1.5\times$ faster than the naive parallel reduction.

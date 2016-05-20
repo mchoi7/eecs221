@@ -1,0 +1,32 @@
+\section{Part 1: Naive Parallel Reduction}
+\label{sec:part1}
+
+Recorded data for naive parallel reduction:
+
+\begin{center}
+	\begin{tabular}{||c c c||} 
+		\hline
+		\#Trial & Time (s) & Bandwidth (GB/s) \\ [0.5ex] 
+		\hline\hline
+		1 & 0.003362 & 9.98 \\ 
+		\hline
+		2 & 0.003362 & 9.98 \\
+		\hline
+		3 & 0.003362 & 9.98 \\
+		\hline
+		4 & 0.003361 & 9.98 \\
+		\hline
+		5 & 0.003349 & 10.02 \\
+		\hline
+	\end{tabular}
+\end{center}
+
+The effective bandwidth, $B$ is calculated using the following formula:
+
+\[ B = \dfrac{N}{T \times 10^9}  \]
+
+where $N$ is the total number of bytes in the array that needs to be reduced. This is also equal to the number of bytes read from the device's global memory into the shared memory. $T$ is the time taken in seconds to reduce the array (using multiple kernel launches). The $10^9$ factor converts the bandwidth unit from bytes/second to GB/s.
+
+
+
+
